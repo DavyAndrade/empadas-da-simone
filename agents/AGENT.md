@@ -15,7 +15,8 @@ a Simone (a cliente) em tarefas no projeto **Empadas da Simone**.
   `docs/DESIGN.md` e materializada em `src/styles/tokens.css` (Tailwind v4
   `@theme` + `@import "@catppuccin/tailwindcss/mocha.css"`). Tipografia:
   Fraunces (display) + Inter (body). Dark-mode nativo, fundo `base`
-  `#1e1e2e` liso (sem gradiente).
+  `#1e1e2e` com gradiente radial sutil (glow pink no topo-esquerda,
+  glow mauve no rodapé-direita, vinheta ao centro).
 
 ## 2. Skills disponíveis em `skills/`
 
@@ -122,9 +123,10 @@ Regras:
   `border-border`, etc.). Nada de `pink-*`/`rose-*`/`red-*` em markup novo.
   A escala antiga só pode ser tocada durante a migração documentada em
   `docs/DESIGN.md` §11.
-- **Background do `body`**: cor sólida (`var(--color-bg)`), sem gradientes
-  ou texturas decorativas. Atmosfera vem de sombras e bordas, não de
-  pintura de fundo.
+- **Background do `body`**: `var(--color-bg)` + gradiente radial sutil
+  (glow pink + glow mauve + vinheta central). Implementado em
+  `src/styles/tokens.css`. Se for remover, mantenha apenas o glow
+  pink — a vinheta é opcional.
 - **Sem comentários no código** (regra do projeto). Exceção: este `AGENT.md`,
   `README.md` e arquivos de docs.
 - **Sem emojis** em código nem em UI (a menos que Simone peça).

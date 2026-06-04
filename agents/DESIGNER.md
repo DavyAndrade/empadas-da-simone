@@ -73,8 +73,10 @@ pode passar a bola para o `DEVELOPER`.
    novo. Para cor crua Catppuccin (raro), use `ctp-*`.
 2. **Contraste AA mínimo.** 4.5:1 para texto, 3:1 para grande. Os pares
    de Mocha já cumprem; nunca escureça tokens.
-3. **Background do `body` é cor sólida.** Sem gradientes, sem SVG noise,
-   sem padrões decorativos.
+3. **Background do `body`** = `var(--color-bg)` + gradiente radial sutil
+   (glow pink no topo-esquerda, glow mauve no rodapé-direita, vinheta
+   ao centro). Definido em `src/styles/tokens.css`. Pode evoluir para
+   outros tons do Mocha, mas **sem SVG noise ou padrões decorativos**.
 4. **Hierarquia pelo tamanho, não pelo brilho.** Não compensa hierarquia
    com peso/bold excessivo.
 5. **Espaço é ingrediente.** `gap-6` entre cards, `py-12` a `py-16` em

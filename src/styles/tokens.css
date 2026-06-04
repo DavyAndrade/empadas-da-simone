@@ -82,6 +82,11 @@
   body {
     background-color: var(--color-bg);
     color: var(--color-fg);
+    background-image:
+      radial-gradient(ellipse 60% 50% at 18% 0%,   oklch(75% 0.10 340 / 0.20) 0, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 82% 100%, oklch(70% 0.10 290 / 0.15) 0, transparent 60%),
+      radial-gradient(ellipse 100% 80% at 50% 40%, oklch(28% 0.02 270 / 0.4) 0, oklch(24% 0.02 270) 70%);
+    background-attachment: fixed;
   }
 
   ::selection {
