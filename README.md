@@ -51,7 +51,14 @@ empadas-da-simone/
 │       └── compartilhar.astro   # QR Code grande + download
 ├── astro.config.mjs
 ├── package.json
-└── README.md
+├── README.md
+├── docs/
+│   ├── AGENT.md      # guia do agente de IA que atende Simone
+│   └── DESIGN.md
+└── skills/           # skills carregadas sob demanda pelo agente
+    ├── frontend-design/
+    ├── tailwind-design-system/
+    └── ui-design-system/
 ```
 
 ## Categorias do cardápio
@@ -123,3 +130,19 @@ Regras:
 2. Importe na Vercel como novo projeto (framework **Astro** detectado automaticamente).
 3. Defina a variável `SITE_URL` nas configurações do projeto.
 4. Deploy. O adapter `@astrojs/vercel` cuida do output estático.
+
+## Atendimento por IA
+
+O projeto inclui um agente de IA configurado para atender Simone (e
+desenvolvedores) em tarefas do dia-a-dia: trocar preços, adicionar sabores,
+revisar copy, ajustar visual, etc. As regras, convenções e mapa de pedidos
+frequentes ficam em [`docs/AGENT.md`](docs/AGENT.md).
+
+Skills carregadas sob demanda (em `skills/`):
+
+- **frontend-design** — criação/refatoração de UI com estética intencional.
+- **tailwind-design-system** — tokens `@theme`, variantes, responsivo, a11y.
+- **ui-design-system** — geração e manutenção de tokens de design.
+
+> Ao pedir mudanças de cardápio, o agente sempre lê `src/data/empadas.json`
+> primeiro e roda `bun run build` ao final para garantir que nada quebrou.
