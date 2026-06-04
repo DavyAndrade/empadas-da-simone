@@ -1,0 +1,101 @@
+{
+  "categorias": [
+    {
+      "id": "empoes",
+      "titulo": "Empadões",
+      "subtitulo": "Massa amanteigada e recheio generoso. Perfeito para a família toda, do almoço de domingo ao jantar com amigos.",
+      "tamanhos": [
+        { "id": "P", "rotulo": "Pequena", "detalhe": "500g" },
+        { "id": "M", "rotulo": "Média", "detalhe": "750g" },
+        { "id": "G", "rotulo": "Grande", "detalhe": "1kg" },
+        { "id": "GG", "rotulo": "Gigante", "detalhe": "1,5kg" }
+      ],
+      "sabores": [
+        { "nome": "Frango", "precos": { "P": 38, "M": 55, "G": 72, "GG": 95 } },
+        { "nome": "Frango com Catupiry", "precos": { "P": 42, "M": 60, "G": 78, "GG": 100 } },
+        { "nome": "Palmito", "precos": { "P": 40, "M": 58, "G": 75, "GG": 98 } },
+        { "nome": "Carne", "precos": { "P": 40, "M": 58, "G": 75, "GG": 98 } },
+        { "nome": "Queijo e Presunto", "precos": { "P": 38, "M": 55, "G": 72, "GG": 95 } },
+        { "nome": "Calabresa com Catupiry", "precos": { "P": 42, "M": 60, "G": 78, "GG": 100 } },
+        { "nome": "Camarão", "precos": { "P": 60, "M": 85, "G": 110, "GG": 145 } },
+        { "nome": "Camarão com Catupiry", "precos": { "P": 65, "M": 90, "G": 115, "GG": 150 } }
+      ]
+    },
+    {
+      "id": "empadas",
+      "titulo": "Empadas",
+      "subtitulo": "As empadas tradicionais da casa, em três tamanhos. Para o lanche, para a mesa, para presentear.",
+      "tamanhos": [
+        { "id": "P", "rotulo": "Pequena", "detalhe": "50ml" },
+        { "id": "M", "rotulo": "Média", "detalhe": "100ml" },
+        { "id": "G", "rotulo": "Grande", "detalhe": "150ml" }
+      ],
+      "salgadas": [
+        { "nome": "Frango", "precos": { "P": 6.5, "M": 9, "G": 12 } },
+        { "nome": "Frango com Catupiry", "precos": { "P": 7.5, "M": 10, "G": 13 } },
+        { "nome": "Palmito", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
+        { "nome": "Carne", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
+        { "nome": "Queijo", "precos": { "P": 6, "M": 8.5, "G": 11 } },
+        { "nome": "Queijo e Presunto", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
+        { "nome": "Calabresa com Catupiry", "precos": { "P": 7.5, "M": 10, "G": 13 } },
+        { "nome": "Camarão", "precos": { "P": 8.5, "M": 11, "G": 14.5 } },
+        { "nome": "Camarão com Catupiry", "precos": { "P": 9.5, "M": 12.5, "G": 16 } },
+        { "nome": "Pizza", "precos": { "P": 7.5, "M": 10, "G": 13 } }
+      ],
+      "doces": [
+        { "nome": "Doce de Leite", "precos": { "P": 6.5, "M": 9, "G": 12 } },
+        { "nome": "Romeu e Julieta", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
+        { "nome": "Chocolate", "precos": { "P": 7.5, "M": 10, "G": 13 } },
+        { "nome": "Coco", "precos": { "P": 6.5, "M": 9, "G": 12 } },
+        { "nome": "Banana com Canela", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
+        { "nome": "Maçã", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
+        { "nome": "Brigadeiro", "precos": { "P": 7.5, "M": 10, "G": 13 } }
+      ]
+    },
+    {
+      "id": "empadinhas",
+      "titulo": "Empadinhas de Festa",
+      "subtitulo": "Por cento (100 unidades). Práticas, saborosas e perfeitas para eventos, confraternizações e mesas grandes.",
+      "unidade": "Cento (100 un.)",
+      "salgadas": [
+        { "nome": "Frango", "preco": 65 },
+        { "nome": "Frango com Catupiry", "preco": 70 },
+        { "nome": "Palmito", "preco": 70 },
+        { "nome": "Carne", "preco": 70 },
+        { "nome": "Queijo", "preco": 60 },
+        { "nome": "Queijo e Presunto", "preco": 70 },
+        { "nome": "Calabresa com Catupiry", "preco": 75 },
+        { "nome": "Camarão", "preco": 95 },
+        { "nome": "Camarão com Catupiry", "preco": 100 },
+        { "nome": "Pizza", "preco": 75 }
+      ],
+      "doces": [
+        { "nome": "Doce de Leite", "preco": 65 },
+        { "nome": "Romeu e Julieta", "preco": 70 },
+        { "nome": "Chocolate", "preco": 75 },
+        { "nome": "Coco", "preco": 65 },
+        { "nome": "Banana com Canela", "preco": 70 },
+        { "nome": "Maçã", "preco": 70 },
+        { "nome": "Brigadeiro", "preco": 75 }
+      ]
+    },
+    {
+      "id": "torteletes",
+      "titulo": "Torteletes",
+      "subtitulo": "Pequenas tortas com acabamento delicado, perfeitas como lembrança ou para a mesa do café.",
+      "tamanhos": [
+        { "id": "Festa", "rotulo": "Festa", "detalhe": "cento (100 un.)" },
+        { "id": "P", "rotulo": "Pequena", "detalhe": "50ml" }
+      ],
+      "sabores": [
+        { "nome": "Limão", "precos": { "Festa": 75, "P": 5 } },
+        { "nome": "Maracujá", "precos": { "Festa": 75, "P": 5 } },
+        { "nome": "Morango", "precos": { "Festa": 80, "P": 6 } },
+        { "nome": "Chocolate", "precos": { "Festa": 85, "P": 6 } },
+        { "nome": "Brigadeiro", "precos": { "Festa": 85, "P": 6 } },
+        { "nome": "Doce de Leite", "precos": { "Festa": 75, "P": 5 } },
+        { "nome": "Coco", "precos": { "Festa": 75, "P": 5 } }
+      ]
+    }
+  ]
+}

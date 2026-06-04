@@ -1,0 +1,32 @@
+---
+interface Categoria {
+  id: string;
+  titulo: string;
+}
+
+interface Props {
+  categorias: Categoria[];
+}
+
+const { categorias } = Astro.props;
+---
+
+<nav
+  class="sticky top-2 z-20 -mx-4 sm:mx-0 px-4 sm:px-0"
+  aria-label="Categorias do cardápio"
+>
+  <div class="bg-white/85 backdrop-blur-md border border-pink-200/60 rounded-2xl shadow-sm sm:shadow-md">
+    <ul class="flex gap-1.5 sm:gap-2 overflow-x-auto scroll-smooth p-1.5 sm:p-2 max-w-full">
+      {categorias.map((cat) => (
+        <li class="shrink-0">
+          <a
+            href={`#${cat.id}`}
+            class="inline-flex items-center text-sm font-semibold text-pink-700 hover:text-pink-900 hover:bg-pink-100 active:bg-pink-200 px-3.5 py-2 rounded-xl transition whitespace-nowrap"
+          >
+            {cat.titulo}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

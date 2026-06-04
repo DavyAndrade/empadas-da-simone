@@ -1,0 +1,37 @@
+---
+import MenuCard from './MenuCard.astro';
+
+interface Sabor {
+  nome: string;
+  precos?: Record<string, number>;
+  preco?: number;
+}
+
+interface Tamanho {
+  id: string;
+  rotulo: string;
+  detalhe?: string;
+}
+
+interface Props {
+  items: Sabor[];
+  tamanhos?: Tamanho[];
+  unidade?: string;
+  tom?: 'padrao' | 'doce';
+}
+
+const { items, tamanhos, unidade, tom = 'padrao' } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
+  {items.map((item) => (
+    <MenuCard
+      nome={item.nome}
+      precos={item.precos}
+      preco={item.preco}
+      tamanhos={tamanhos}
+      unidade={unidade}
+      tom={tom}
+    />
+  ))}
+</div>

@@ -1,0 +1,60 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Empadas da Simone — Empadas artesanais feitas com carinho',
+  description = 'Cardápio das empadas artesanais feitas com carinho pela Simone. Confira nossos sabores e faça seu pedido pelo WhatsApp.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#db2777" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body class="font-body bg-pink-50 text-pink-950 min-h-screen antialiased selection:bg-pink-200 selection:text-pink-900">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import "tailwindcss";
+
+  @theme {
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Lato", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(244, 114, 182, 0.10) 0, transparent 40%),
+      radial-gradient(circle at 80% 100%, rgba(244, 114, 182, 0.10) 0, transparent 40%);
+    background-attachment: fixed;
+  }
+</style>

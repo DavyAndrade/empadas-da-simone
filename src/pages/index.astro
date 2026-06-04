@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import CategoryNav from '../components/CategoryNav.astro';
+import CategorySection from '../components/CategorySection.astro';
+import ShareBar from '../components/ShareBar.astro';
+import cardapio from '../data/empadas.json';
+
+const categorias = cardapio.categorias;
+const totalSabores =
+  categorias.reduce((acc, c) => {
+    if (c.sabores) return acc + c.sabores.length;
+    return acc + (c.salgadas?.length ?? 0) + (c.doces?.length ?? 0);
+  }, 0);
+---
+
+<Base>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+    <header class="text-center mb-12 sm:mb-16">
+      <p class="inline-block font-body text-xs sm:text-sm uppercase tracking-[0.3em] text-pink-600 mb-4">
+        Receitas de família
+      </p>
+      <h1 class="font-display text-5xl sm:text-7xl text-pink-900 leading-[0.95] mb-5">
+        Empadas
+        <span class="block italic font-normal text-pink-600">da Simone</span>
+      </h1>
+      <p class="text-pink-800/80 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+        Massa amanteigada, recheios generosos e aquele gostinho de feito em casa.
+        Escolha seu sabor favorito e peça pelo WhatsApp.
+      </p>
+      <p class="mt-6 font-body text-xs uppercase tracking-widest text-pink-500">
+        {categorias.length} categorias · {totalSabores} sabores
+      </p>
+    </header>
+
+    <CategoryNav categorias={categorias} />
+
+    <div class="space-y-20 sm:space-y-28 mt-12 sm:mt-16">
+      {categorias.map((cat) => <CategorySection categoria={cat} />)}
+    </div>
+
+    <section class="border-t border-pink-200/60 pt-12 sm:pt-16 mt-20 sm:mt-28">
+      <ShareBar />
+    </section>
+
+    <footer class="mt-16 text-center text-pink-700/60 text-sm">
+      <p>
+        Feito com <span class="text-pink-500">♥</span> por Simone · Encomendas via WhatsApp
+      </p>
+    </footer>
+  </main>
+</Base>

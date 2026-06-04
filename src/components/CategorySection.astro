@@ -1,0 +1,99 @@
+---
+import MenuGrid from './MenuGrid.astro';
+
+interface Tamanho {
+  id: string;
+  rotulo: string;
+  detalhe?: string;
+}
+
+interface Sabor {
+  nome: string;
+  precos?: Record<string, number>;
+  preco?: number;
+}
+
+interface Categoria {
+  id: string;
+  titulo: string;
+  subtitulo?: string;
+  unidade?: string;
+  tamanhos?: Tamanho[];
+  sabores?: Sabor[];
+  salgadas?: Sabor[];
+  doces?: Sabor[];
+}
+
+interface Props {
+  categoria: Categoria;
+}
+
+const { categoria } = Astro.props;
+---
+
+<section id={categoria.id} class="scroll-mt-24">
+  <header class="mb-8 sm:mb-10">
+    <h2 class="font-display text-3xl sm:text-4xl text-pink-900 leading-tight mb-3">
+      {categoria.titulo}
+    </h2>
+
+    {categoria.subtitulo && (
+      <p class="text-pink-800/75 text-base sm:text-lg max-w-2xl leading-relaxed">
+        {categoria.subtitulo}
+      </p>
+    )}
+
+    {categoria.tamanhos && categoria.tamanhos.length > 0 && (
+      <div class="mt-5 flex flex-wrap gap-2">
+        {categoria.tamanhos.map((t) => (
+          <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm bg-pink-100/70 text-pink-800 px-3 py-1.5 rounded-full font-medium border border-pink-200/50">
+            <span class="font-bold text-pink-900">{t.rotulo}</span>
+            {t.detalhe && <span class="text-pink-600/80">· {t.detalhe}</span>}
+          </span>
+        ))}
+      </div>
+    )}
+  </header>
+
+  {categoria.sabores && (
+    <MenuGrid items={categoria.sabores} tamanhos={categoria.tamanhos} />
+  )}
+
+  {categoria.salgadas && categoria.salgadas.length > 0 && (
+    <div class="mb-10 sm:mb-12">
+      <h3 class="font-display text-xl sm:text-2xl text-pink-800 mb-4 sm:mb-5 flex items-center gap-2.5">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-pink-600"></span>
+        Salgadas
+        <span class="font-body text-xs uppercase tracking-widest text-pink-400 font-normal ml-1">
+          {categoria.salgadas.length} {categoria.salgadas.length === 1 ? 'sabor' : 'sabores'}
+        </span>
+      </h3>
+      <MenuGrid
+        items={categoria.salgadas}
+        tamanhos={categoria.tamanhos}
+        unidade={categoria.unidade}
+        tom="padrao"
+      />
+    </div>
+  )}
+
+  {categoria.doces && categoria.doces.length > 0 && (
+    <div>
+      <h3 class="font-display text-xl sm:text-2xl text-pink-800 mb-4 sm:mb-5 flex items-center gap-2.5">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-pink-300 ring-2 ring-pink-200/60"></span>
+        Doces
+        <span class="font-body text-xs uppercase tracking-widest text-pink-400 font-normal ml-1">
+          {categoria.doces.length} {categoria.doces.length === 1 ? 'sabor' : 'sabores'}
+        </span>
+      </h3>
+      <div class="p-1 sm:p-2 rounded-2xl bg-pink-50/50">
+        <MenuGrid
+          items={categoria.doces}
+          tamanhos={categoria.tamanhos}
+          unidade={categoria.unidade}
+          tom="doce"
+        />
+      </div>
+    </div>
+  )}
+</section>

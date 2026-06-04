@@ -1,0 +1,139 @@
+---
+import Base from '../layouts/Base.astro';
+
+const siteUrl = import.meta.env.SITE_URL || 'https://empadas-da-simone.vercel.app';
+---
+
+<Base
+  title="Seu QR Code — Empadas da Simone"
+  description="QR Code do cardápio das empadas da Simone. Imprima, compartilhe ou baixe."
+>
+  <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12 sm:py-20 text-center">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-pink-700 hover:text-pink-900 text-sm font-semibold mb-10 transition"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+        <path d="m12 19-7-7 7-7" />
+        <path d="M19 12H5" />
+      </svg>
+      Voltar ao cardápio
+    </a>
+
+    <p class="inline-block font-body text-xs sm:text-sm uppercase tracking-[0.3em] text-pink-600 mb-4">
+      Para imprimir ou compartilhar
+    </p>
+    <h1 class="font-display text-4xl sm:text-5xl text-pink-900 leading-tight mb-4">
+      Seu <span class="italic text-pink-600">QR Code</span>
+    </h1>
+    <p class="text-pink-800/80 text-base sm:text-lg max-w-md mx-auto mb-10">
+      Aponte a câmera para abrir o cardápio.
+    </p>
+
+    <div class="inline-block bg-white p-7 sm:p-9 rounded-3xl shadow-md border border-pink-100 mb-8">
+      <div
+        id="qrcode"
+        data-url={siteUrl}
+        class="mx-auto [&_canvas]:rounded-lg [&_img]:rounded-lg"
+      ></div>
+    </div>
+
+    <div class="mb-8">
+      <p class="font-body text-xs uppercase tracking-widest text-pink-500 mb-2">
+        Link
+      </p>
+      <a
+        href={siteUrl}
+        class="font-display text-pink-700 hover:text-pink-900 underline underline-offset-4 decoration-pink-300 break-all"
+      >
+        {siteUrl}
+      </a>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button
+        type="button"
+        id="download-btn"
+        class="inline-flex items-center justify-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow transition"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" x2="12" y1="15" y2="3" />
+        </svg>
+        Baixar como PNG
+      </button>
+
+      <a
+        href="/"
+        class="inline-flex items-center justify-center gap-2 bg-pink-100 hover:bg-pink-200 text-pink-800 font-semibold px-6 py-3 rounded-full transition"
+      >
+        Ver o cardápio
+      </a>
+    </div>
+
+    <div id="download-status" class="mt-6 text-sm text-pink-600 hidden">
+      QR Code baixado!
+    </div>
+  </main>
+</Base>
+
+<script is:inline>
+  (function () {
+    const container = document.getElementById('qrcode');
+    if (!container) return;
+    const url = container.getAttribute('data-url') || '';
+
+    const renderQR = () => {
+      container.innerHTML = '';
+      // eslint-disable-next-line no-undef
+      new QRCode(container, {
+        text: url,
+        width: 256,
+        height: 256,
+        colorDark: '#831843',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M,
+      });
+    };
+
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    s.async = true;
+    s.onload = renderQR;
+    s.onerror = () => {
+      container.textContent = 'Não foi possível carregar o gerador de QR Code.';
+    };
+    document.head.appendChild(s);
+
+    const downloadBtn = document.getElementById('download-btn');
+    const status = document.getElementById('download-status');
+
+    const tryDownload = (attempts = 0) => {
+      const canvas = container.querySelector('canvas');
+      if (canvas) {
+        try {
+          const dataUrl = canvas.toDataURL('image/png');
+          const a = document.createElement('a');
+          a.href = dataUrl;
+          a.download = 'empadas-da-simone-qrcode.png';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          if (status) {
+            status.classList.remove('hidden');
+            setTimeout(() => status.classList.add('hidden'), 2400);
+          }
+        } catch (err) {
+          console.error('Erro ao gerar PNG:', err);
+        }
+        return;
+      }
+      if (attempts < 30) {
+        setTimeout(() => tryDownload(attempts + 1), 150);
+      }
+    };
+
+    downloadBtn?.addEventListener('click', () => tryDownload());
+  })();
+</script>
