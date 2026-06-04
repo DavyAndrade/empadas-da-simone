@@ -43,28 +43,19 @@
     {
       "id": "empadinhas",
       "titulo": "Empadinhas de Festa",
-      "subtitulo": "Por cento (100 unidades). Práticas, saborosas e perfeitas para eventos, confraternizações e mesas grandes.",
-      "unidade": "Cento (100 un.)",
-      "salgadas": [
-        { "nome": "Frango", "preco": 65 },
-        { "nome": "Frango com Catupiry", "preco": 70 },
-        { "nome": "Palmito", "preco": 70 },
-        { "nome": "Carne", "preco": 70 },
-        { "nome": "Queijo", "preco": 60 },
-        { "nome": "Queijo e Presunto", "preco": 70 },
-        { "nome": "Calabresa com Catupiry", "preco": 75 },
-        { "nome": "Camarão", "preco": 95 },
-        { "nome": "Camarão com Catupiry", "preco": 100 },
-        { "nome": "Pizza", "preco": 75 }
+      "subtitulo": "Práticas, saborosas e perfeitas para eventos, confraternizações e mesas grandes. Disponíveis no cento (100 un.) ou meio cento (50 un.).",
+      "tamanhos": [
+        { "id": "Cento", "rotulo": "Cento", "detalhe": "100 un." },
+        { "id": "Meio", "rotulo": "Meio cento", "detalhe": "50 un." }
       ],
-      "doces": [
-        { "nome": "Doce de Leite", "preco": 65 },
-        { "nome": "Romeu e Julieta", "preco": 70 },
-        { "nome": "Chocolate", "preco": 75 },
-        { "nome": "Coco", "preco": 65 },
-        { "nome": "Banana com Canela", "preco": 70 },
-        { "nome": "Maçã", "preco": 70 },
-        { "nome": "Brigadeiro", "preco": 75 }
+      "sabores": [
+        { "nome": "Frango", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Frango com Catupiry", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Queijo", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Calabresa", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Palmito", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Camarão", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Doce de Leite", "precos": { "Cento": 130, "Meio": 75 } }
       ]
     },
     {

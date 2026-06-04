@@ -43,7 +43,7 @@ empadas-da-simone/
 │   │   ├── MenuGrid.astro         # grade responsiva
 │   │   └── ShareBar.astro
 │   ├── data/
-│   │   └── empadas.json
+│   │   └── cardapio.json
 │   ├── layouts/
 │   │   └── Base.astro
 │   └── pages/
@@ -70,7 +70,7 @@ empadas-da-simone/
 | Empadinhas    | Festa — cento (100 un.)                               | Salgadas e doces                                                         |
 | Torteletes    | Festa — cento (100 un.) · P (50ml)                    | Doces                                                                    |
 
-### Modelo de dados (`src/data/empadas.json`)
+### Modelo de dados (`src/data/cardapio.json`)
 
 ```jsonc
 {
@@ -115,7 +115,7 @@ Regras:
 
 ## Personalização
 
-- **Sabores e preços:** edite `src/data/empadas.json`. Cada item aceita `nome` (string)
+- **Sabores e preços:** edite `src/data/cardapio.json`. Cada item aceita `nome` (string)
   e `preco` (number em reais). A formatação em `R$ 6,50` é feita automaticamente via
   `toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })`.
 - **Cores:** toda a paleta usa a escala `pink` do Tailwind. Para mudar o tom, basta
@@ -144,5 +144,5 @@ Skills carregadas sob demanda (em `skills/`):
 - **tailwind-design-system** — tokens `@theme`, variantes, responsivo, a11y.
 - **ui-design-system** — geração e manutenção de tokens de design.
 
-> Ao pedir mudanças de cardápio, o agente sempre lê `src/data/empadas.json`
+> Ao pedir mudanças de cardápio, o agente sempre lê `src/data/cardapio.json`
 > primeiro e roda `bun run build` ao final para garantir que nada quebrou.
