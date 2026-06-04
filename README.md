@@ -36,6 +36,8 @@ empadas-da-simone/
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── styles/
+│   │   └── tokens.css        # @theme do Tailwind v4 (paleta, fontes, raio, sombra, animação)
 │   ├── components/
 │   │   ├── CategoryNav.astro      # sticky nav com âncoras
 │   │   ├── CategorySection.astro  # seção de categoria (salgadas/doces)
@@ -54,7 +56,7 @@ empadas-da-simone/
 ├── README.md
 ├── docs/
 │   ├── AGENT.md      # guia do agente de IA que atende Simone
-│   └── DESIGN.md
+│   └── DESIGN.md     # manifesto do design system (paleta, tipografia, componentes, tom de voz)
 └── skills/           # skills carregadas sob demanda pelo agente
     ├── frontend-design/
     ├── tailwind-design-system/
@@ -118,11 +120,13 @@ Regras:
 - **Sabores e preços:** edite `src/data/cardapio.json`. Cada item aceita `nome` (string)
   e `preco` (number em reais). A formatação em `R$ 6,50` é feita automaticamente via
   `toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })`.
-- **Cores:** toda a paleta usa a escala `pink` do Tailwind. Para mudar o tom, basta
-  substituir `pink-*` por outra escala (ex.: `rose-*`, `fuchsia-*`).
-- **Tipografia:** Playfair Display (títulos) e Lato (corpo) são carregadas do
-  Google Fonts em `src/layouts/Base.astro`. Para trocar, ajuste o `<link>` e os
-  tokens `--font-display` / `--font-body` dentro de `@theme`.
+- **Cores, tipografia, raio, sombra, animação:** vivem em `src/styles/tokens.css`
+  como tokens semânticos do Tailwind v4 (`@theme`). Para re-tematizar, altere
+  as variáveis OKLCH naquele arquivo. Detalhes e rationale em
+  [`docs/DESIGN.md`](docs/DESIGN.md).
+- **Fontes:** Fraunces (títulos) e Sora (corpo) são carregadas do Google Fonts
+  em `src/layouts/Base.astro`. Para trocar, ajuste o `<link>` e os tokens
+  `--font-display` / `--font-body` em `tokens.css`.
 
 ## Deploy na Vercel
 

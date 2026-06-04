@@ -11,66 +11,68 @@ interface Props {
   preco?: number;
   tamanhos?: Tamanho[];
   unidade?: string;
-  tom?: 'padrao' | 'doce';
+  tom?: "padrao" | "doce";
 }
 
-const { nome, precos, preco, tamanhos, unidade, tom = 'padrao' } = Astro.props;
+const { nome, precos, preco, tamanhos, unidade, tom = "padrao" } = Astro.props;
 
 const formatBRL = (v: number) =>
-  v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
 const cardClass =
-  tom === 'doce'
-    ? 'bg-pink-50/60 border-pink-200/80 hover:border-pink-300'
-    : 'bg-white border-pink-100 hover:border-pink-300';
+  tom === "doce"
+    ? "bg-sweet-soft/30 border-border hover:border-primary"
+    : "bg-surface border-border hover:border-border-strong";
 ---
 
 <article
   class:list={[
-    'group relative flex flex-col rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 border',
+    "group relative flex flex-col rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 border",
     cardClass,
   ]}
 >
-  <div class="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-pink-300 via-pink-500 to-pink-700 opacity-70 group-hover:opacity-100 transition"></div>
-
-  <h3 class="font-display text-xl sm:text-2xl text-pink-900 leading-tight mb-4">
+  <h3 class="font-display text-xl sm:text-2xl text-fg leading-tight mb-4">
     {nome}
   </h3>
 
-  {precos && tamanhos && (
-    <dl class="space-y-1.5 mt-auto pt-2 border-t border-pink-100/80">
-      {tamanhos.map((t) => {
-        const valor = precos[t.id];
-        if (valor === undefined) return null;
-        return (
-          <div class="flex items-baseline justify-between gap-3 text-sm">
-            <dt class="text-pink-700">
-              <span class="font-semibold text-pink-900">{t.rotulo}</span>
-              {t.detalhe && (
-                <span class="text-pink-500/80 ml-1.5 text-xs sm:text-sm">
-                  · {t.detalhe}
-                </span>
-              )}
-            </dt>
-            <dd class="font-display text-base sm:text-lg font-bold text-pink-700 whitespace-nowrap">
-              {formatBRL(valor)}
-            </dd>
-          </div>
-        );
-      })}
-    </dl>
-  )}
+  {
+    precos && tamanhos && (
+      <dl class="space-y-1.5 mt-auto pt-2 border-t border-border">
+        {tamanhos.map((t) => {
+          const valor = precos[t.id];
+          if (valor === undefined) return null;
+          return (
+            <div class="flex items-baseline justify-between gap-3 text-sm">
+              <dt class="text-muted">
+                <span class="font-semibold text-fg">{t.rotulo}</span>
+                {t.detalhe && (
+                  <span class="text-subtle ml-1.5 text-xs sm:text-sm">
+                    · {t.detalhe}
+                  </span>
+                )}
+              </dt>
+              <dd class="font-display text-base sm:text-lg font-bold text-primary whitespace-nowrap num">
+                {formatBRL(valor)}
+              </dd>
+            </div>
+          );
+        })}
+      </dl>
+    )
+  }
 
-  {preco !== undefined && (
-    <div class="mt-auto pt-3 border-t border-pink-100/80">
-      {unidade && (
-        <p class="font-body text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] text-pink-500 font-semibold mb-1.5">
-          {unidade}
+  {
+    preco !== undefined && (
+      <div class="mt-auto pt-3 border-t border-border">
+        {unidade && (
+          <p class="font-body text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] text-subtle font-semibold mb-1.5">
+            {unidade}
+          </p>
+        )}
+        <p class="font-display text-3xl sm:text-4xl font-bold text-primary num">
+          {formatBRL(preco)}
         </p>
-      )}
-      <p class="font-display text-3xl sm:text-4xl font-bold text-pink-700">
-        {formatBRL(preco)}
-      </p>
-    </div>
-  )}
+      </div>
+    )
+  }
 </article>

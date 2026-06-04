@@ -11,9 +11,11 @@ a Simone (a cliente) em tarefas no projeto **Empadas da Simone**.
 - **Stack:** Astro 5 (estático) · Tailwind CSS v4 (`@theme` em CSS) · Bun · deploy
   Vercel via `@astrojs/vercel`. QR Code via `qrcodejs` carregado por CDN.
 - **Idioma:** pt-BR em todo o conteúdo visível (cardápio, copy, metadados).
-- **Identidade visual atual:** paleta `pink-*` do Tailwind, tipografia Playfair
-  Display (títulos) + Lato (corpo), radial-gradients rosa-claro de fundo,
-  estética "receitas de família / feito em casa".
+- **Identidade visual:** **Catppuccin Mocha + Pink (acento)**, definida em
+  `docs/DESIGN.md` e materializada em `src/styles/tokens.css` (Tailwind v4
+  `@theme` + `@import "@catppuccin/tailwindcss/mocha.css"`). Tipografia:
+  Fraunces (display) + Inter (body). Dark-mode nativo, fundo `base`
+  `#1e1e2e` liso (sem gradiente).
 
 ## 2. Skills disponíveis em `skills/`
 
@@ -34,7 +36,9 @@ Antes de mexer em qualquer coisa, carregue as skills relevantes ao pedido:
 empadas-da-simone/
 ├── src/
 │   ├── data/cardapio.json       # ÚNICA fonte de verdade do cardápio
-│   ├── layouts/Base.astro       # <html>, fontes, @theme, bg gradiente
+│   ├── layouts/Base.astro       # <html>, fontes, importa tokens.css
+│   ├── styles/
+│   │   └── tokens.css           # @theme do Tailwind v4 + Catppuccin Mocha (cores, fontes, raio, sombra, animação)
 │   ├── components/
 │   │   ├── CategoryNav.astro    # nav sticky com âncoras
 │   │   ├── CategorySection.astro# seção (renderiza sabores / salgadas / doces)
@@ -47,8 +51,8 @@ empadas-da-simone/
 ├── astro.config.mjs
 ├── package.json
 └── docs/
-    ├── AGENT.md                 # este arquivo
-    └── DESIGN.md                # guia de design (quando existir)
+    ├── AGENT.md                 # este arquivo (regras do agente)
+    └── DESIGN.md                # manifesto do design system (paleta, tipografia, componentes)
 ```
 
 ## 4. Modelo de dados (`src/data/cardapio.json`)
@@ -102,7 +106,7 @@ Regras:
 | "Tira o sabor X / adiciona o sabor Y"            | `src/data/cardapio.json` (entrada em `sabores`/`salgadas`/`doces`) | —              |
 | "Adiciona uma categoria nova (ex.: Beijinhos)"    | `src/data/cardapio.json` (entrada em `categorias[]`)    | —              |
 | "Muda o número do WhatsApp"                       | `src/components/ShareBar.astro` (link `wa.me/...`)      | —              |
-| "Muda a cor rosa para outro tom"                  | `Base.astro` (gradientes) + substituir `pink-*` nos componentes | `frontend-design` + `tailwind-design-system` |
+| "Muda a cor rosa para outro tom"                  | `src/styles/tokens.css` (`--color-primary`, `--color-accent`) e migrar componentes para `text-primary`/`bg-accent` | `frontend-design` + `tailwind-design-system` |
 | "Troca a fonte dos títulos"                       | `Base.astro` (`<link>` Google Fonts + `--font-display`)| `frontend-design` |
 | "Reescreve o subtítulo da seção X"                | `src/data/cardapio.json` (`subtitulo` da categoria)      | —              |
 | "Adiciona uma página nova"                        | `src/pages/<nome>.astro` reaproveitando `Base.astro`     | `frontend-design` |
@@ -112,10 +116,15 @@ Regras:
 
 - **Astro** com frontmatter `---` + JSX-like. Sem frameworks reativos.
 - **Tailwind v4**: classes utilitárias direto no markup, **sem**
-  `tailwind.config.js`. Tokens de tema ficam no `@theme` dentro de
-  `Base.astro` (`<style is:global>`). Para adicionar token novo, edite lá.
-- **Cores**: usar preferencialmente a escala `pink-*` para manter a
-  identidade. Outras escalas só com aprovação explícita.
+  `tailwind.config.js`. Tokens de tema ficam em `src/styles/tokens.css`
+  dentro de `@theme`. Para adicionar token novo, edite lá.
+- **Cores**: usar os tokens semânticos (`text-primary`, `bg-accent-soft`,
+  `border-border`, etc.). Nada de `pink-*`/`rose-*`/`red-*` em markup novo.
+  A escala antiga só pode ser tocada durante a migração documentada em
+  `docs/DESIGN.md` §11.
+- **Background do `body`**: cor sólida (`var(--color-bg)`), sem gradientes
+  ou texturas decorativas. Atmosfera vem de sombras e bordas, não de
+  pintura de fundo.
 - **Sem comentários no código** (regra do projeto). Exceção: este `AGENT.md`,
   `README.md` e arquivos de docs.
 - **Sem emojis** em código nem em UI (a menos que Simone peça).

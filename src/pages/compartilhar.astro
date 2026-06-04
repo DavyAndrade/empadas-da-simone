@@ -11,7 +11,7 @@ const siteUrl = import.meta.env.SITE_URL || 'https://empadas-da-simone.vercel.ap
   <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12 sm:py-20 text-center">
     <a
       href="/"
-      class="inline-flex items-center gap-2 text-pink-700 hover:text-pink-900 text-sm font-semibold mb-10 transition"
+      class="inline-flex items-center gap-2 text-muted hover:text-primary text-sm font-semibold mb-10 transition"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
         <path d="m12 19-7-7 7-7" />
@@ -20,17 +20,17 @@ const siteUrl = import.meta.env.SITE_URL || 'https://empadas-da-simone.vercel.ap
       Voltar ao cardápio
     </a>
 
-    <p class="inline-block font-body text-xs sm:text-sm uppercase tracking-[0.3em] text-pink-600 mb-4">
+    <p class="inline-block font-body text-xs sm:text-sm uppercase tracking-[0.3em] text-primary mb-4">
       Para imprimir ou compartilhar
     </p>
-    <h1 class="font-display text-4xl sm:text-5xl text-pink-900 leading-tight mb-4">
-      Seu <span class="italic text-pink-600">QR Code</span>
+    <h1 class="font-display text-4xl sm:text-5xl text-fg leading-tight mb-4">
+      Seu <span class="italic text-primary">QR Code</span>
     </h1>
-    <p class="text-pink-800/80 text-base sm:text-lg max-w-md mx-auto mb-10">
+    <p class="text-muted text-base sm:text-lg max-w-md mx-auto mb-10">
       Aponte a câmera para abrir o cardápio.
     </p>
 
-    <div class="inline-block bg-white p-7 sm:p-9 rounded-3xl shadow-md border border-pink-100 mb-8">
+    <div class="inline-block bg-surface p-7 sm:p-9 rounded-3xl shadow-md border border-border mb-8">
       <div
         id="qrcode"
         data-url={siteUrl}
@@ -39,12 +39,12 @@ const siteUrl = import.meta.env.SITE_URL || 'https://empadas-da-simone.vercel.ap
     </div>
 
     <div class="mb-8">
-      <p class="font-body text-xs uppercase tracking-widest text-pink-500 mb-2">
+      <p class="font-body text-xs uppercase tracking-widest text-subtle mb-2">
         Link
       </p>
       <a
         href={siteUrl}
-        class="font-display text-pink-700 hover:text-pink-900 underline underline-offset-4 decoration-pink-300 break-all"
+        class="font-display text-primary hover:text-fg underline underline-offset-4 decoration-primary-soft break-all"
       >
         {siteUrl}
       </a>
@@ -54,7 +54,7 @@ const siteUrl = import.meta.env.SITE_URL || 'https://empadas-da-simone.vercel.ap
       <button
         type="button"
         id="download-btn"
-        class="inline-flex items-center justify-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow transition"
+        class="inline-flex items-center justify-center gap-2 bg-primary text-primary-fg font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow hover:brightness-90 transition"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -66,13 +66,13 @@ const siteUrl = import.meta.env.SITE_URL || 'https://empadas-da-simone.vercel.ap
 
       <a
         href="/"
-        class="inline-flex items-center justify-center gap-2 bg-pink-100 hover:bg-pink-200 text-pink-800 font-semibold px-6 py-3 rounded-full transition"
+        class="inline-flex items-center justify-center gap-2 bg-primary-soft text-primary font-semibold px-6 py-3 rounded-full hover:brightness-95 transition"
       >
         Ver o cardápio
       </a>
     </div>
 
-    <div id="download-status" class="mt-6 text-sm text-pink-600 hidden">
+    <div id="download-status" class="mt-6 text-sm text-success hidden">
       QR Code baixado!
     </div>
   </main>
@@ -91,7 +91,7 @@ const siteUrl = import.meta.env.SITE_URL || 'https://empadas-da-simone.vercel.ap
         text: url,
         width: 256,
         height: 256,
-        colorDark: '#831843',
+        colorDark: '#1e1e2e',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.M,
       });
