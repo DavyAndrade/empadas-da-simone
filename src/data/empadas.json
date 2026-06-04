@@ -1,7 +1,7 @@
 {
   "categorias": [
     {
-      "id": "empoes",
+      "id": "empadoes",
       "titulo": "Empadões",
       "subtitulo": "Massa amanteigada e recheio generoso. Perfeito para a família toda, do almoço de domingo ao jantar com amigos.",
       "tamanhos": [
@@ -11,14 +11,12 @@
         { "id": "GG", "rotulo": "Gigante", "detalhe": "1,5kg" }
       ],
       "sabores": [
-        { "nome": "Frango", "precos": { "P": 38, "M": 55, "G": 72, "GG": 95 } },
-        { "nome": "Frango com Catupiry", "precos": { "P": 42, "M": 60, "G": 78, "GG": 100 } },
-        { "nome": "Palmito", "precos": { "P": 40, "M": 58, "G": 75, "GG": 98 } },
-        { "nome": "Carne", "precos": { "P": 40, "M": 58, "G": 75, "GG": 98 } },
-        { "nome": "Queijo e Presunto", "precos": { "P": 38, "M": 55, "G": 72, "GG": 95 } },
-        { "nome": "Calabresa com Catupiry", "precos": { "P": 42, "M": 60, "G": 78, "GG": 100 } },
-        { "nome": "Camarão", "precos": { "P": 60, "M": 85, "G": 110, "GG": 145 } },
-        { "nome": "Camarão com Catupiry", "precos": { "P": 65, "M": 90, "G": 115, "GG": 150 } }
+        { "nome": "Frango", "precos": { "P": 50, "M": 58, "G": 85, "GG": 120 } },
+        { "nome": "Queijo", "precos": { "P": 50, "M": 58, "G": 85, "GG": 120 } },
+        { "nome": "Frango com Catupiry", "precos": { "P": 50, "M": 58, "G": 85, "GG": 120 } },
+        { "nome": "Calabresa", "precos": { "P": 50, "M": 58, "G": 85, "GG": 120 } },
+        { "nome": "Camarão", "precos": { "P": 60, "M": 75, "G": 95, "GG": 140 } },
+        { "nome": "Palmito", "precos": { "P": 60, "M": 75, "G": 95, "GG": 140 } }
       ]
     },
     {
@@ -31,16 +29,10 @@
         { "id": "G", "rotulo": "Grande", "detalhe": "150ml" }
       ],
       "salgadas": [
-        { "nome": "Frango", "precos": { "P": 6.5, "M": 9, "G": 12 } },
-        { "nome": "Frango com Catupiry", "precos": { "P": 7.5, "M": 10, "G": 13 } },
-        { "nome": "Palmito", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
-        { "nome": "Carne", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
-        { "nome": "Queijo", "precos": { "P": 6, "M": 8.5, "G": 11 } },
-        { "nome": "Queijo e Presunto", "precos": { "P": 7, "M": 9.5, "G": 12.5 } },
-        { "nome": "Calabresa com Catupiry", "precos": { "P": 7.5, "M": 10, "G": 13 } },
-        { "nome": "Camarão", "precos": { "P": 8.5, "M": 11, "G": 14.5 } },
-        { "nome": "Camarão com Catupiry", "precos": { "P": 9.5, "M": 12.5, "G": 16 } },
-        { "nome": "Pizza", "precos": { "P": 7.5, "M": 10, "G": 13 } }
+        { "nome": "Frango", "precos": { "P": 4, "M": 6, "G": 9 } },
+        { "nome": "Frango com Catupiry", "precos": { "P": 4, "M": 6, "G": 9 } },
+        { "nome": "Calabresa", "precos": { "P": 4, "M": 6, "G": 9 } },
+        { "nome": "Palmito", "precos": { "P": 6, "M": 8, "G": 12 } }
       ],
       "doces": [
         { "nome": "Doce de Leite", "precos": { "P": 6.5, "M": 9, "G": 12 } },
