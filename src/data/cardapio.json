@@ -61,19 +61,15 @@
     {
       "id": "torteletes",
       "titulo": "Torteletes",
-      "subtitulo": "Pequenas tortas com acabamento delicado, perfeitas como lembrança ou para a mesa do café.",
+      "subtitulo": "Tortinhas delicadas, perfeitas para festas, eventos e confraternizações.",
       "tamanhos": [
-        { "id": "Festa", "rotulo": "Festa", "detalhe": "cento (100 un.)" },
-        { "id": "P", "rotulo": "Pequena", "detalhe": "50ml" }
+        { "id": "Cento", "rotulo": "Cento", "detalhe": "100 un." },
+        { "id": "Meio", "rotulo": "Meio cento", "detalhe": "50 un." }
       ],
       "sabores": [
-        { "nome": "Limão", "precos": { "Festa": 75, "P": 5 } },
-        { "nome": "Maracujá", "precos": { "Festa": 75, "P": 5 } },
-        { "nome": "Morango", "precos": { "Festa": 80, "P": 6 } },
-        { "nome": "Chocolate", "precos": { "Festa": 85, "P": 6 } },
-        { "nome": "Brigadeiro", "precos": { "Festa": 85, "P": 6 } },
-        { "nome": "Doce de Leite", "precos": { "Festa": 75, "P": 5 } },
-        { "nome": "Coco", "precos": { "Festa": 75, "P": 5 } }
+        { "nome": "Sardinha", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Limão", "precos": { "Cento": 130, "Meio": 75 } },
+        { "nome": "Maracujá", "precos": { "Cento": 130, "Meio": 75 } }
       ]
     }
   ]
